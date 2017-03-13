@@ -1,0 +1,17 @@
+sudo apt-get install -y nodejs
+
+ATENÇÃO: em algumas distribuições Linux, pode haver um conflito de nomes quando o Node é instalado pelo apt-get. 
+Neste caso específico, no lugar do binário ser node, ele passa a se chamar nodejs. Isso gera problemas, pois a 
+instrução npm start não funcionará, pois ela procura o binário node e não nodejs. 
+Para resolver, use a seguinte instrução no terminal para subir o servidor:
+
+nodejs server
+
+Dentro da pasta do projeto alurapic que você descompactou anteriormente, busque todas as dependências do projeto
+
+npm install
+
+Subir o servidor
+npm start
+
+http://localhost:3000

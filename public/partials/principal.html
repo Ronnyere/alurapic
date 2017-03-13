@@ -1,0 +1,44 @@
+<!--  
+Fragmento de página: principal.html
+http://localhost:3000/#/fotos
+
+ng-model         - permite ler e também alterar o model associado (two-way data binding)
+ng-model-options - permite aguardar 500ms a cada dígito
+-->
+
+<div class="jumbotron">
+    <h1 class="text-center">Alurapic</h1>
+</div>
+
+<p class="alert alert-info" ng-show ="mensagem.length">
+    {{mensagem}}
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div clas="input-group">
+
+                <span class="input-group-btn">
+                    <!-- insere um botão que chamará a página de cadastro -->
+                    <a href="/fotos/new" class="btn btn-primary" >Nova Foto</a>
+                </span>
+
+                <input ng-model="filtro" ng-model-options="{ debounce: 500 }" 
+                 class="form-control" placeholder="filtrar">
+            </div> <!-- div input-group -->
+        </form>
+    </div> <!-- col-md12 -->
+</div> <!-- fim row do campo de busca" -->
+
+
+
+<div class="row"> <!-- row + col-md-2 = grid -->
+    <meu-painel class="col-md-2 painel-animado" 
+                ng-repeat="foto in fotos | filter: filtro" 
+                titulo="{{foto.titulo}}">
+        <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
+        <a href="fotos/edit/{{foto._id}}" class="btn btn-primary btn-block">Editar</a>
+        <button ng-click="remover(foto)" class="btn btn-danger btn-block">Remover</button>
+    </meu-painel>
+</div> <!-- fim do row/grid -->

@@ -1,0 +1,23 @@
+/*
+Quando usamos o módulo ngAnimate, algumas diretivas do Angular 
+passam a adicionar ou remover classes automaticamente sem a nossa ciência
+Por exemplo, quando usamos a diretiva ng-repeat e um elemento sai da lista
+ele ganha a classe ng-leave, e quando está para sair ng-leave-active. 
+*/
+.painel-animado.ng-leave-active{
+    -moz-transform: scale(0.1);
+    -webkit-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -o-transform: scale(0.1);
+    transform: scale(0.1);
+}
+
+/* sai do tamanho que está, e vai diminuindo quando o 
+elemento sofrer uma transformação (no caso, saindo da lista)*/
+.painel-animado{
+    -moz-transition:transform 0.8s;
+    -webkit-transition:transform 0.8s;
+    -ms-transition:transform 0.8s;
+    -o-transition:transform 0.8s;
+    transition:transform 0.8s;
+}
